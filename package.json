@@ -1,0 +1,21 @@
+{
+  "name": "forge-3leg.nodejs-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "forge-data-management": "^2.0.2",
+    "forge-model-derivative": "^2.0.2",
+    "forge-oauth2": "^1.0.2",
+    "forge-oss": "^2.0.2",
+    "jquery": "^3.1.0",
+    "multer": "^1.2.0"
+  },
+  "devDependencies": {},
+  "author": "Augusto Goncalves (Forge Partner Development)",
+  "license": "MIT"
+}
