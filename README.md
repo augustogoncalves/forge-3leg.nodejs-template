@@ -1,4 +1,4 @@
-# data.management.api-nodejs-sample
+# forge-3leg.nodejs-template
 
 [![Node.js](https://img.shields.io/badge/Node.js-4.4.3-blue.svg)](https://nodejs.org/)
 [![npm](https://img.shields.io/badge/npm-2.15.1-blue.svg)](https://www.npmjs.com/)
@@ -11,9 +11,9 @@ This template (or boiler plate) implements a basic infrastrucutre for [Autodesk 
 
 # Setup
 
-For using this sample, you need a valid oAuth credential. Visit the [Forge Developer Portal](https://developer.autodesk.com), create an account, then [create an app](https://developer.autodesk.com/myapps/create). Use <b>http://localhost:3000/api/autodesk/callback</b> as Callback URL. Finally take note of the <b>Client ID</b> and <b>Client Secret</b>.
+For using this sample, you need a valid oAuth credential. Visit the [Forge Developer Portal](https://developer.autodesk.com), sign up for an account, then [create an app](https://developer.autodesk.com/myapps/create). Use <b>http://localhost:3000/api/autodesk/callback</b> as Callback URL. Finally take note of the <b>Client ID</b> and <b>Client Secret</b>.
 
-First clone this template or download it. Via command line, use the following:
+To run it locallyt, first clone this project or download it. Via command line, use the following:
 
     git clone https://github.com/augustogoncalves/forge-3leg.nodejs-template
     cd forge-3leg.nodejs-template
