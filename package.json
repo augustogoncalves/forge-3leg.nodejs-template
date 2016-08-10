@@ -15,6 +15,10 @@
     "jquery": "^3.1.0",
     "multer": "^1.2.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/augustogoncalves/forge-3leg.nodejs-template"
+  },
   "devDependencies": {},
   "author": "Augusto Goncalves (Forge Partner Development)",
   "license": "MIT"
