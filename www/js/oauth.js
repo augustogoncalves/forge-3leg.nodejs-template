@@ -22,11 +22,13 @@ $(document).ready(function () {
   if (currentToken === '')
     $('#signInButton').click(signIn);
   else {
-    var profile = getUserProfile();
-    $('#signInProfileImage').removeClass(); // remove glyphicon-user
-    $('#signInProfileImage').html('<img src="' + profile.picture + '"/>')
-    $('#signInButtonText').text(profile.name);
-    $('#signInButton').click(logoff);
+    getUserProfile(function (profile) {
+      $('#signInProfileImage').removeClass(); // remove glyphicon-user
+      $('#signInProfileImage').html('<img src="' + profile.picture + '"/>')
+      $('#signInButtonText').text(profile.name);
+      $('#signInButtonText').attr('title', 'Click to logoff');
+      $('#signInButton').click(logoff);
+    });
   }
 });
 
@@ -39,7 +41,7 @@ function signIn() {
   });
 }
 
-function logoff(){
+function logoff() {
   jQuery.ajax({
     url: '/api/user/logoff',
     success: function (oauthUrl) {
@@ -55,20 +57,18 @@ function get3LegToken() {
     success: function (res) {
       token = res;
     },
-    async: false // this request must be synchronous for the Viewer
+    async: false // this request must be synchronous for the Forge Viewer
   });
-  if (token != '') console.log('3 legged token (User Authorization): ' + token);
+  if (token != '') console.log('3 legged token (User Authorization): ' + token); // debug
   return token;
 }
 
-function getUserProfile() {
+function getUserProfile(onsuccess) {
   var profile = '';
   jQuery.ajax({
     url: '/api/user/profile',
-    success: function (res) {
-      profile = res;
-    },
-    async: false
+    success: function (profile) {
+      onsuccess(JSON.parse(profile));
+    }
   });
-  return JSON.parse(profile);
 }

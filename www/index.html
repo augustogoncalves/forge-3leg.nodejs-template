@@ -2,18 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Autodesk Forge - NodeJS Boiler Plate</title>
+  <title>Autodesk Forge - NodeJS - Template</title>
   <!-- Common packages: JQuery & Bootstrap -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <script language="JavaScript" src="/js/jquery.min.js"></script>
   <script language="JavaScript" src="/js/bootstrap.min.js"></script>
   <!-- Autodesk Forge Viewer files -->
-  <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.min.css"
-        type="text/css">
-  <script language="JavaScript"
-          src="https://developer.api.autodesk.com/viewingservice/v1/viewers/three.min.js"></script>
-  <script language="JavaScript"
-          src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.min.css" type="text/css">
+  <script language="JavaScript" src="https://developer.api.autodesk.com/viewingservice/v1/viewers/three.min.js"></script>
+  <script language="JavaScript" src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
   <!-- this project main script -->
   <link rel="shortcut icon" href=/img/favicon.ico type=image/x-icon>
   <link rel="stylesheet" href="/css/main.css"/>
@@ -35,7 +32,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li>
         <a href="#" id="signInButton"><span class="glyphicon glyphicon-user" id="signInProfileImage"></span>
-          <span id="signInButtonText">Sign in</span></a>
+          <span id="signInButtonText" title="Sign in with your Autodesk Account">Sign in</span></a>
       </li>
     </ul>
   </div>
@@ -47,7 +44,7 @@
     <h4>This basic template will help you get started with NodeJS projects.</h4>
     <h6>Create your developer key & secret at <a href="http://developer.autodesk.com" target="_blank">Autodesk
       Developer</a>.</h6>
-    <h6>OAuth 2.0 implemented at the <b>Login</b> button. See /routes/api.js for more information</h6>
+    <h6>OAuth 2.0 implemented at the <b>Login</b> button. See /routes/oauth.js for more information</h6>
   </div>
 </div>
 </body>

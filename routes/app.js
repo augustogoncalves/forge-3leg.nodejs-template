@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development 
+// Written by Forge Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -18,19 +18,18 @@
 
 'use strict'; // http://www.w3schools.com/js/js_strict.asp
 
-module.exports = {
+// token handling in session
+var token = require('./token');
 
-  // this this callback URL when creating your client ID and secret
-  callbackURL: 'http://localhost:3000/api/autodesk/callback',
+// web framework
+var express = require('express');
+var router = express.Router();
 
-  // set enviroment variables or hard-code here
-  credentials: {
-    client_id: process.env.FORGE_CLIENT_ID || '<replace with your consumer key>',
-    client_secret: process.env.FORGE_CLIENT_SECRET || '<replace with your consumer secret>',
-  },
 
-  // Required scopes for your application on server-side
-  scopeInternal: 'data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete',
-  // Required scope of the token sent to the client
-  scopePublic: 'data:read',
-};
+router.get('/somethinghere', function (req, res) {
+  var tokenSession = new token(req.session);
+  
+  // ToDo: implement your application here
+});
+
+module.exports = router;
