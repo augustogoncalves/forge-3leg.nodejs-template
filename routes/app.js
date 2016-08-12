@@ -26,10 +26,11 @@ var express = require('express');
 var router = express.Router();
 
 
-router.get('/somethinghere', function (req, res) {
+router.get('/your_end_point', function (req, res) {
   var tokenSession = new token(req.session);
   
   // ToDo: implement your application here
+  
 });
 
 module.exports = router;

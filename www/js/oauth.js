@@ -34,7 +34,7 @@ $(document).ready(function () {
 
 function signIn() {
   jQuery.ajax({
-    url: '/api/user/authenticate',
+    url: '/user/authenticate',
     success: function (rootUrl) {
       location.href = rootUrl;
     }
@@ -43,7 +43,7 @@ function signIn() {
 
 function logoff() {
   jQuery.ajax({
-    url: '/api/user/logoff',
+    url: '/user/logoff',
     success: function (oauthUrl) {
       location.href = oauthUrl;
     }
@@ -53,7 +53,7 @@ function logoff() {
 function get3LegToken() {
   var token = '';
   jQuery.ajax({
-    url: '/api/user/token',
+    url: '/user/token',
     success: function (res) {
       token = res;
     },
@@ -66,7 +66,7 @@ function get3LegToken() {
 function getUserProfile(onsuccess) {
   var profile = '';
   jQuery.ajax({
-    url: '/api/user/profile',
+    url: '/user/profile',
     success: function (profile) {
       onsuccess(JSON.parse(profile));
     }

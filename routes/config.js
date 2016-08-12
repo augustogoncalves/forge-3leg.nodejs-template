@@ -21,7 +21,7 @@
 module.exports = {
 
   // this this callback URL when creating your client ID and secret
-  callbackURL: 'http://localhost:3000/api/autodesk/callback',
+  callbackURL: 'http://localhost:3000/callback/autodesk',
 
   // set enviroment variables or hard-code here
   credentials: {

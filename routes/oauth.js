@@ -76,7 +76,7 @@ router.get('/user/authenticate', function (req, res) {
 });
 
 // wait for Autodesk callback (oAuth callback)
-router.get('/autodesk/callback', function (req, res) {
+router.get('/callback/autodesk', function (req, res) {
   var code = req.query.code;
   var oauth3legged = new forgeOAuth2.ThreeLeggedApi();
   var tokenSession = new token(req.session);
