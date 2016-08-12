@@ -16,18 +16,19 @@
 
 This template (or boiler plate) implements a basic infrastrucutre for [Autodesk Forge 3 Legged OAuth](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/) with NodeJS. 
 
+[](www/img/indexpage.png)
+
 # Setup
 
 For using this sample, you need an Autodesk developer credentials. Visit the [Forge Developer Portal](https://developer.autodesk.com), sign up for an account, then [create an app](https://developer.autodesk.com/myapps/create). For this new app, use <b>http://localhost:3000/callback/autodesk</b> as Callback URL. Finally take note of the <b>Client ID</b> and <b>Client Secret</b>.
 
-Install [NodeJS](https://nodejs.org) if you don't have yet.
+Install [NodeJS](https://nodejs.org).
 
-Clone this project or download it. It's recommended to install GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (MacOSX/Linux, use the Terminal, on Windows use the Git Sheel):
+Clone this project or download it. It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (<b>Terminal</b> on MacOSX/Linux, <b>Git Sheel</b> on Windows):
 
     git clone https://github.com/augustogoncalves/forge-3leg.nodejs-template
-    cd forge-3leg.nodejs-template
-    
-To run it, install the required packages, set the enviroment variables with your client ID & secret and finally start it. Via command line, use the following:
+
+To run it, install the required packages, set the enviroment variables with your client ID & secret and finally start it. Via command line, navigate to the folder where this repository was cloned and use the following:
 
 Mac OSX/Linux (Terminal)
 
@@ -47,17 +48,18 @@ Open the browser: [http://localhost:3000](http://localhost:3000).
 
 ## What's next?
 
-Your application endpoint should be implemented at [/routes/app.js](/routes/app.js). Use the [Token](/routes/app.js) module to read the Public and Internal tokens. Only send Public token to the front-end, use the Internal token to perform server-side operations with Autodesk APIs.
+Your application endpoints should be implemented at [/routes/app.js](/routes/app.js). Use the [Token](/routes/token.js) module to read the Public and Internal tokens. Only send Public token to the front-end, use the Internal token to perform server-side operations with Autodesk APIs.
 
-Below is a small section of the app.js file. Replace the <br>get</b> and <b>your_end_point</b> with your own.
+Below is a small section of the app.js file. Adjust the <b>get</b> method and replace <b>your_end_point</b> endpoint with your own.
 
     // token handling in session
     var token = require('./token');
 
     router.get('/your_end_point', function (req, res) {
       var tokenSession = new token(req.session);
+      var tokenInternal = tokenSession.getTokenInternal();
 
-      // ToDo: implement your application here
+      // ToDo: implement your application here, e.g. call Autodesk endpoints
 
     });
 
@@ -71,15 +73,15 @@ For local development/testing, consider use <b>nodemon</b> package, which auto r
 
     sudo npm install -g nodemon
 
-To use it, instead of <b>npm start</b>, use the following:
+Then instead of <b>npm start</b>, use the following:
 
     nodemon server.js --ignore www/
 
-Trick: the <b>--ignore</b> parameter indicates that the app should not restart if files under <b>www</b> folder are modified.
+Node the <b>--ignore</b> parameter indicates that the app should not restart if files under <b>www</b> folder are modified.
 
 ## Troubleshooting
 
-After installing Github desktop for Windows, on the Git Shell, if you see a *error setting certificate verify locations* error, use the following:
+After installing Github desktop for Windows, on the Git Shell, if you see a <b>*error setting certificate verify locations*</b> error, use the following:
 
     git config --global http.sslverify "false"
 

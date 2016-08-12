@@ -28,8 +28,9 @@ var router = express.Router();
 
 router.get('/your_end_point', function (req, res) {
   var tokenSession = new token(req.session);
-  
-  // ToDo: implement your application here
+  var tokenInternal = tokenSession.getTokenInternal();
+
+  // ToDo: implement your application here, e.g. call Autodesk endpoints
   
 });
 
