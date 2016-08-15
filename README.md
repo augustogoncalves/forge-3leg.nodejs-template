@@ -20,9 +20,11 @@ This template (or boiler plate) implements a basic infrastrucutre for [Autodesk 
 
 For using this sample, you need an Autodesk developer credentials. Visit the [Forge Developer Portal](https://developer.autodesk.com), sign up for an account, then [create an app](https://developer.autodesk.com/myapps/create). For this new app, use <b>http://localhost:3000/callback/autodesk</b> as Callback URL. Finally take note of the <b>Client ID</b> and <b>Client Secret</b>.
 
+### Run locally
+
 Install [NodeJS](https://nodejs.org).
 
-Clone this project or download it. It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (<b>Terminal</b> on MacOSX/Linux, <b>Git Sheel</b> on Windows):
+Clone this project or download it. It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (<b>Terminal</b> on MacOSX/Linux, <b>Git Shell</b> on Windows):
 
     git clone https://github.com/augustogoncalves/forge-3leg.nodejs-template
 

@@ -16,6 +16,9 @@
     },
     "FORGE_CLIENT_SECRET": {
       "description": "Forge Client Secret"
+    },
+    "FORGE_CALLBACK_URL":{
+      "description": "Callback URL of your app, required for 3-legged OAuth"
     }
   },
   "website": "https://developer.autodesk.com/",
