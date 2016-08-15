@@ -25,27 +25,28 @@ var app = express();
 // this session will be used to save the oAuth token
 app.use(cookieParser());
 app.use(session({
-    secret: 'autodeskforge',
-    resave: true,
-    saveUninitialized: true
+  secret: 'autodeskforge',
+  cookie: {
+    httpOnly: true,
+    secure: (process.env.NODE_ENV == 'production'),
+    maxAge: 1000 * 60 * 60 // 1 hours to expire the session and avoid memory leak
+  },
+  resave: true,
+  saveUninitialized: true
 }));
 
 // prepare server routing
-app.use('/', express.static(__dirname + '/www')); // redirect static calls
-app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect static calls
-app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect static calls
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect static calls
-app.use('/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts')); // redirect static calls
+app.use('/', express.static(__dirname + '/../www')); // redirect static calls
+app.use('/js', express.static(__dirname + '/../node_modules/bootstrap/dist/js')); // redirect static calls
+app.use('/js', express.static(__dirname + '/../node_modules/jquery/dist')); // redirect static calls
+app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css')); // redirect static calls
+app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fonts')); // redirect static calls
 app.set('port', process.env.PORT || 3000); // main port
 
 // prepare our API endpoint routing
-var oauth = require('./routes/oauth');
-var myApp = require('./routes/app');
+var oauth = require('./oauth');
+var myApp = require('./app');
 app.use('/', oauth); // redirect oauth API calls
 app.use('/', myApp); // redirect our custom API calls
 
-// start server
-var server = app.listen(app.get('port'), function () {
-    console.log('Starting at ' + (new Date()).toString());
-    console.log('Server listening on port ' + server.address().port);
-});
+module.exports = app;

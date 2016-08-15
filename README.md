@@ -44,9 +44,13 @@ Windows (use <b>Node.js command line</b> from Start menu)
 
 Open the browser: [http://localhost:3000](http://localhost:3000).
 
+### Deploy on Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## What's next?
 
-Your application endpoints should be implemented at [/routes/app.js](/routes/app.js). Use the [Token](/routes/token.js) module to read the Public and Internal tokens. Only send Public token to the front-end, use the Internal token to perform server-side operations with Autodesk APIs.
+Your application endpoints should be implemented at [/server/app.js](/routes/app.js). Use the [Token](/server/token.js) module to read the Public and Internal tokens. Only send Public token to the front-end, use the Internal token to perform server-side operations with Autodesk APIs.
 
 Below is a small section of the app.js file. Adjust the <b>get</b> method and replace <b>your_end_point</b> endpoint with your own.
 
@@ -61,21 +65,23 @@ Below is a small section of the app.js file. Adjust the <b>get</b> method and re
 
     });
 
+When your application is live, consider changing the <b>secure</b> attribute on [/server/server.js](/routes/server.js) to <b>true</b>
+
 ## Packages used
 
 All Autodesk Forge NPM packages are included by default, see complete list of what's available at [NPM website](https://www.npmjs.com/browse/keyword/autodesk). Some other non-Autodesk packaged are used, including [express](https://www.npmjs.com/package/express) and its session/cookie middlewares ([express-session](https://www.npmjs.com/package/express-session) and [cookie-parser](https://www.npmjs.com/package/cookie-parser)) for user session handling. The front-end uses [bootsrap](https://www.npmjs.com/package/bootstrap) and [jquery](https://www.npmjs.com/package/jquery).
 
 # Tips & tricks
 
-For local development/testing, consider use <b>nodemon</b> package, which auto restart your node application after any modification on your code. To install it, use:
+For local development/testing, consider use [nodemon](https://www.npmjs.com/package/nodemon) package, which auto restart your node application after any modification on your code. To install it, use:
 
     sudo npm install -g nodemon
 
-Then instead of <b>npm start</b>, use the following:
+Then, instead of <b>npm start</b>, use the following:
 
-    nodemon server.js --ignore www/
+    npm run dev
 
-Node the <b>--ignore</b> parameter indicates that the app should not restart if files under <b>www</b> folder are modified.
+Which executes <b>nodemon server.js --ignore www/</b>, where the <b>--ignore</b> parameter indicates that the app should not restart if files under <b>www</b> folder are modified.
 
 ## Troubleshooting
 
