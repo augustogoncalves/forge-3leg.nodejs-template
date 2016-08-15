@@ -48,6 +48,8 @@ Open the browser: [http://localhost:3000](http://localhost:3000).
 
 ### Deploy on Heroku
 
+To deploy this application to Heroku, the <b>Callback URL</b> must use your .herokuapp.com address. After clicking on the button below, at the Heroku Create New App page, set your Client ID & Secret and the correct callback URL.
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## What's next?
