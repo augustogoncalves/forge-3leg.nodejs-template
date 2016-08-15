@@ -35,16 +35,18 @@ Mac OSX/Linux (Terminal)
     npm install
     export FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
     export FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-    npm start
+    npm run dev
 
 Windows (use <b>Node.js command line</b> from Start menu)
 
     npm install
     set FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
     set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-    npm start
+    npm run dev
 
 Open the browser: [http://localhost:3000](http://localhost:3000).
+
+<b>Important:</b> do not use <b>npm start</b> locally, this is intended for PRODUCTION only with HTTPS (SSL) secure cookies.
 
 ### Deploy on Heroku
 
@@ -81,9 +83,9 @@ For local development/testing, consider use [nodemon](https://www.npmjs.com/pack
 
     sudo npm install -g nodemon
 
-Then, instead of <b>npm start</b>, use the following:
+Then, instead of <b>npm run dev</b>, use the following:
 
-    npm run dev
+    npm run nodemon
 
 Which executes <b>nodemon server.js --ignore www/</b>, where the <b>--ignore</b> parameter indicates that the app should not restart if files under <b>www</b> folder are modified.
 
