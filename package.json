@@ -19,8 +19,8 @@
   },
   "scripts": {
     "start" : "NODE_ENV=production node start.js",
-    "dev": "NODE_ENV=development node start.js",
-    "nodemon": "NODE_ENV=development nodemon start.js --ignore www/"
+    "dev": "node start.js",
+    "nodemon": "nodemon start.js --ignore www/"
   },
   "author": "Augusto Goncalves (Forge Partner Development)",
   "license": "MIT"
