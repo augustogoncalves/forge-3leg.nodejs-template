@@ -30,9 +30,9 @@ var forgeOAuth2 = require('forge-oauth2');
 // forge config information, such as client ID and secret
 var config = require('./config');
 
-// this end point will logoff the user by destroying the session
+// this end point will forgeLogoff the user by destroying the session
 // as of now there is no Forge endpoint to invalidate tokens
-router.get('/user/logoff', function (req, res) {
+router.get('/user/forgeLogoff', function (req, res) {
   req.session.destroy();
   res.end('/');
 });

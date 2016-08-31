@@ -17,22 +17,22 @@
 /////////////////////////////////////////////////////////////////////
 
 $(document).ready(function () {
-  var currentToken = get3LegToken();
+  var currentToken = getForgeToken();
 
   if (currentToken === '')
-    $('#signInButton').click(signIn);
+    $('#signInButton').click(forgeSignIn);
   else {
-    getUserProfile(function (profile) {
+    getForgeUserProfile(function (profile) {
       $('#signInProfileImage').removeClass(); // remove glyphicon-user
       $('#signInProfileImage').html('<img src="' + profile.picture + '"/>')
       $('#signInButtonText').text(profile.name);
-      $('#signInButtonText').attr('title', 'Click to logoff');
-      $('#signInButton').click(logoff);
+      $('#signInButtonText').attr('title', 'Click to forgeLogoff');
+      $('#signInButton').click(forgeLogoff);
     });
   }
 });
 
-function signIn() {
+function forgeSignIn() {
   jQuery.ajax({
     url: '/user/authenticate',
     success: function (rootUrl) {
@@ -41,16 +41,16 @@ function signIn() {
   });
 }
 
-function logoff() {
+function forgeLogoff() {
   jQuery.ajax({
-    url: '/user/logoff',
+    url: '/user/forgeLogoff',
     success: function (oauthUrl) {
       location.href = oauthUrl;
     }
   });
 }
 
-function get3LegToken() {
+function getForgeToken() {
   var token = '';
   jQuery.ajax({
     url: '/user/token',
@@ -63,7 +63,7 @@ function get3LegToken() {
   return token;
 }
 
-function getUserProfile(onsuccess) {
+function getForgeUserProfile(onsuccess) {
   var profile = '';
   jQuery.ajax({
     url: '/user/profile',

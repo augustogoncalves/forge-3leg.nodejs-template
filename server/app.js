@@ -28,6 +28,13 @@ var router = express.Router();
 
 router.get('/your_end_point', function (req, res) {
   var tokenSession = new token(req.session);
+  if (!tokenSession.isAuthorized()) {
+    // if is not authorized, your endpoint
+    // shoudl return 401 (or another error message)
+    res.status(401).end('Please login first');
+  }
+
+  // this is the internal token
   var tokenInternal = tokenSession.getTokenInternal();
 
   // ToDo: implement your application here, e.g. call Autodesk endpoints
