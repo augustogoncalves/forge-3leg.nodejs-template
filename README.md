@@ -54,6 +54,8 @@ To deploy this application to Heroku, the <b>Callback URL</b> must use your .her
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy this sample to Heroku.
+
 ## What's next?
 
 Your application endpoints should be implemented at [/server/app.js](/routes/app.js). Use the [Token](/server/token.js) module to read the Public and Internal tokens. Only send Public token to the front-end, use the Internal token to perform server-side operations with Autodesk APIs.
